@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+
+     <title>哈工大（深圳）行人重识别系统</title>
+<!--
+Template 2098 Health
+http://www.tooplate.com/view/2098-health
+
+-->
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="Tooplate">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+     <link rel="stylesheet" href="./static/css/bootstrap.min.css">
+     <link rel="stylesheet" href="./static/css/font-awesome.min.css">
+     <link rel="stylesheet" href="./static/css/animate.css">
+     <link rel="stylesheet" href="./static/css/owl.carousel.css">
+     <link rel="stylesheet" href="./static/css/owl.theme.default.min.css">
+	 <!--
+	 <link rel="stylesheet" href="../static/css/index.css">--> <!-- for element ui-->
+	 <!-- 引入样式 -->
+	 <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	 <!--<link rel="stylesheet" href="../static/css/index.css">-->
+
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" href="./static/css/tooplate-style.css">
+
+	 <!-- 自带样式 -->
+	 <style>
+		/* 控制加号部分 */
+		.disabled .el-upload --picture-card {
+		  display: none !important;
+		}
+	</style>
+
+</head>
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+     <!-- PRE LOADER -->
+     <section class="preloader">
+          <div class="spinner">
+               <span class="spinner-rotate"></span>
+               
+          </div>
+     </section>
+
+
+     <!-- HEADER -->
+     <header>
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-4 col-sm-5">
+                         <p>哈尔滨工业大学(深圳)生物计算研究中心</p>
+                    </div>
+                    <!--     
+                    <div class="col-md-8 col-sm-7 text-align-right">
+                         <span class="phone-icon"><i class="fa fa-phone"></i> 010-060-0160</span>
+                         <span class="date-icon"><i class="fa fa-calendar-plus-o"></i> 6:00 AM - 10:00 PM (Mon-Fri)</span>
+                         <span class="email-icon"><i class="fa fa-envelope-o"></i> <a href="#">info@company.com</a></span>
+                    </div>
+					-->
+               </div>
+          </div>
+     </header>
+
+
+     <!-- MENU -->
+     <section class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+
+               <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                    </button>
+
+                    <!-- lOGO TEXT HERE -->
+					<a href="index.html" class="navbar-brand">哈工大（深圳）行人重识别系统</a>
+               </div>
+
+               <!-- MENU LINKS -->
+               <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                         <li class="guide-btn"><a href="#top" class="smoothScroll">首页</a></li>
+                         <li class="guide-btn"><a href="#submit" class="smoothScroll">上传查询行人序列</a></li>
+                         <li class="guide-btn"><a href="#gallery" class="smoothScroll">查看检索结果</a></li>
+						 <!--
+                         <li><a href="#news" class="smoothScroll">News</a></li>
+                         <li><a href="#google-map" class="smoothScroll">Contact</a></li>
+                         <li class="appointment-btn"><a href="#appointment">Make an appointment</a></li>
+						 -->
+                    </ul>
+               </div>
+
+          </div>
+     </section>
+
+
+     <!-- HOME -->
+     <section id="home" class="slider" data-stellar-background-ratio="0.5">
+          <div class="container">
+               <div class="row">
+
+                         <div class="owl-carousel owl-theme">
+                              <div class="item item-first">
+                                   <div class="caption">
+                                        <div class="col-md-offset-1 col-md-10">
+                                             <!--<h3>Let's make your life happier</h3>-->
+                                             <h1>上传待查询行人</h1>
+                                             <a href="#submit" class="section-btn btn btn-default smoothScroll">上传</a>
+                                        </div>
+                                   </div>
+                              </div>
+
+                              <div class="item item-second">
+                                   <div class="caption">
+                                        <div class="col-md-offset-1 col-md-10">
+                                             <!--<h3>Aenean luctus lobortis tellus</h3>-->
+                                             <h1>查看检索结果</h1>
+                                             <a href="#gallery" class="section-btn btn btn-default btn-grey smoothScroll">查看</a>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+
+               </div>
+          </div>
+     </section>
+
+     <!-- SUBMIT -->
+     <section id="submit" data-stellar-background-ratio="2.5">
+        <div class="container">
+            <div class="row">
+
+				<div class="col-md-12 col-sm-12">
+					<!-- SECTION TITLE -->
+					<div class="section-title wow fadeInUp" data-wow-delay="0.1s">
+						<h2>上传待查询行人序列</h2>
+					</div>
+				</div>
+				
+				<div class="col-md-12 col-sm-12" id="submit_part">
+					<el-form ref="form" :model="form" label-width="80px">
+				
+						<!--<div class="col-md-4 col-sm-6">-->
+							<div class="col-md-12 col-sm-12">
+							<!-- TONGUE PIC -->
+							<div class="news-thumb wow fadeInUp" data-wow-delay="0.4s">
+								<!-- onchange?-->
+								<!--<h3>待查询行人图像序列</h3>-->
+								<el-upload
+								  class="imgBox"
+								  action="#"
+								  list-type="picture-card"
+								  multiple
+								  limit="6"
+								  :class="{disabled: uploadDisabled }"
+								  :auto-upload="false" ref="upload_query"
+								  :file-list="fileList_query"
+								  :on-preview="handlePictureCardPreview"
+								  :on-remove="handleRemove"
+								  :on-exceed="handleFileUploaderExceed_query"
+								  :on-change="handleFileUploaderChange_query">
+								  
+								  <i class="el-icon-plus"></i>
+								</el-upload>
+							</div>
+							<!--</div>-->
+						</div>
+						
+						<div class="col-md-12 col-sm-12">
+							<el-form-item>
+								<el-button class="submitBtn" type="primary" @click="onSubmit">上传</el-button>
+								<el-button>取消</el-button>
+							</el-form-item>
+						</div>
+					</el-form>
+				</div>
+            </div>
+        </div>
+    </section>
+	
+	
+	<section id="gallery" data-stellar-background-ratio="2.5">
+        <div class="container">
+            <div class="row">
+
+				<div class="col-md-12 col-sm-12">
+					<!-- SECTION TITLE -->
+					<div class="section-title wow fadeInUp" data-wow-delay="0.1s">
+						<h2>查看检索结果</h2>  
+					</div>
+					
+					<div class="col-md-12 col-sm-12" id="search_part">
+						<el-form ref="form_search" :model="form_search" label-width="80px">
+							
+							<div div class="col-md-4 col-sm-6">
+								<el-form-item class="title" label="Top-K">
+									<el-input v-model="form_search.topk"></el-input> 
+									<el-button class="submitBtn" type="primary" @click="handleSearch">查询</el-button>
+								</el-form-item>
+							</div>
+							<!--
+							<div div class="col-md-4 col-sm-6">
+								<el-form-item>
+									
+								</el-form-item>
+							</div>
+							-->
+							
+							
+							
+						</el-form>
+					</div>
+
+					<div class="col-md-12 col-sm-12" id="display">
+						<template>
+							<el-table
+							:data="tableData"
+							style="width: 100%"
+							max-height="400">
+								<el-table-column
+									fixed
+									prop="pid"
+									label="行人PID"
+									width="100">
+								</el-table-column>
+
+								<el-table-column
+									fixed
+									prop="cid"
+									label="行人CamID"
+									width="100">
+								</el-table-column>
+								
+								<el-table-column 
+									label="检索得到的行人序列" 
+									prop="searchImages" 
+									width="650px">
+									<template slot-scope="scope" >
+										<!-- index = 0 1 2 3 4-->
+									    <span v-for="(item, index) in scope.row.searchImages" >
+											<el-popover
+												placement="right"
+												width="400"
+												trigger="click">
+												<img :src="item" width="400px" height="400px" >
+												<img slot="reference" :src="item" width="100px" height="100px" >
+											</el-popover>
+									    </span>
+									</template>
+								</el-table-column>
+
+							</el-table>		
+						</template>		
+					</div>
+			</div>
+		</div>
+			
+
+	</section>
+	
+   
+
+     <!-- GOOGLE MAP -->
+	 <!--
+     <section id="google-map">
+	 -->
+     <!-- How to change your own map point
+            1. Go to Google Maps
+            2. Click on your location point
+            3. Click "Share" and choose "Embed map" tab
+            4. Copy only URL and paste it within the src="" field below
+	-->
+	<!--
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.8062168563224!2d113.96617941389424!3d22.58634993816025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3403f3142b0bc041%3A0x44719e686b463d1d!2z5ZOI5bCU5ruo5bel5Lia5aSn5a2mKOa3seWcsyk!5e0!3m2!1szh-CN!2s!4v1616507455764!5m2!1szh-CN!2s" width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+     </section>  
+	-->
+
+
+     <!-- FOOTER -->
+     <footer data-stellar-background-ratio="5">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-4 col-sm-4">
+                         <div class="footer-thumb"> 
+                              <h4 class="wow fadeInUp" data-wow-delay="0.4s">联系信息</h4>
+                              <p>如有任何疑问，可通过下列联系方式与我们取得联系。</p>
+
+                              <div class="contact-info">
+                                   <p><i class="fa fa-phone"></i> 123-456-7890</p>
+                                   <p><i class="fa fa-envelope-o"></i> <a href="#">www.hitsz.edu.cn</a></p>
+                              </div>
+                         </div>
+                    </div>
+					
+                    <div class="col-md-4 col-sm-4"> 
+                         <div class="footer-thumb">
+                              <div class="opening-hours">
+                                   <h4 class="wow fadeInUp" data-wow-delay="0.4s">开放时间</h4>
+                                   <p>周一 至 周五 <span>06:00 AM - 10:00 PM</span></p>
+                                   <p>周六 <span>09:00 AM - 08:00 PM</span></p>
+                                   <p>周日 <span>休息日</span></p>
+                              </div> 
+                         </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 border-top">
+                         <div class="col-md-4 col-sm-6">
+                              <div class="copyright-text"> 
+                                   <p>Copyright &copy; 2021 哈尔滨工业大学(深圳)</p>
+                              </div>
+                         </div>
+                         <div class="col-md-2 col-sm-2 text-align-center">
+                              <div class="angle-up-btn"> 
+                                  <a href="#top" class="smoothScroll wow fadeInUp" data-wow-delay="1.2s"><i class="fa fa-angle-up"></i></a>
+                              </div>
+                         </div>   
+                    </div>
+                    
+               </div>
+          </div>
+     </footer>
+
+     <!-- SCRIPTS -->
+     <script src="./static/js/jquery.js"></script>
+     <script src="./static/js/bootstrap.min.js"></script>
+     <script src="./static/js/jquery.sticky.js"></script>
+     <script src="./static/js/jquery.stellar.min.js"></script>
+     <script src="./static/js/wow.min.js"></script>
+     <script src="./static/js/smoothscroll.js"></script>
+     <script src="./static/js/owl.carousel.min.js"></script>
+     <script src="./static/js/custom.js"></script>
+	 <!-- for element ui-->
+	 
+	 
+	 <!--<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>-->
+	 <script src="./static/js/vue.min.js"></script>
+	 <script src="./static/js/index.js"></script>
+
+	 
+	 <!--<script src="https://unpkg.com/vue/dist/vue.js"></script>-->
+	 <!--<script src="https://unpkg.com/element-ui/lib/index.js"></script>-->
+
+	 
+	 <script>
+	    new Vue({
+	        el: '#submit_part',
+			/*
+	        data: function() {
+	        return { visible: false }
+	        }*/
+			data() {
+				return {
+					form: {
+					    imgList_query: [],
+					},
+					fileList_query:[],
+					uids: [],
+					//dialogImageUrl: '', // 对话框图像路径
+					//dialogVisible: false,  // 对话框可见
+					
+				}
+			},
+	        
+			methods: {
+				  onSubmit() {
+					let Url = '/ajax_submit';
+					$.ajax({
+						type: "post",
+						url: Url,
+						contentType: "application/json",
+						data: JSON.stringify({
+							images_query: this.form.imgList_query,
+						}),  //前端传回后端的数据
+						dataType: "text",  //这个datatype指的是后端传回的data的类型
+						success: function (status) {
+							console.log(status)
+							if(status == "OK"){
+								/*
+								let self = this
+								let interval = window.setInterval(function(){
+									console.log("here")
+									self.percentage += 20
+									if(self.percentage >= 100)
+									{
+										window.clearInterval(interval)
+									}
+								},1000)*/
+								/*
+								var i=0
+								var self=this
+								while(i < 100000)
+								{
+									console.log("here")
+									i = i+1
+									self.percentage = 100
+									console.log(this.percentage)
+								}*/
+								alert("上传成功!")
+								window.location.href = "http://127.0.0.1:5000/"
+							}
+						},
+
+						error: function (XMLHttpRequest, textStatus, thrownError) {
+						    console.log("ERROR")
+							alert("请输入需要上传的行人序列！")
+							window.location.href = "http://127.0.0.1:5000/"
+						}
+					})
+					//清除所有内容
+					this.form.imgList_query = [];
+					this.$refs.upload_query.clearFiles();
+
+				},
+				handleFileUploaderChange_query(file, fileList) {
+					console.log("in query")
+					const self = this
+					this.uids.push(file.uid)
+					if (fileList.length>=6){
+						console.log("here")
+						self.uploadDisabled = true;
+					}
+					console.log(self.uploadDisabled)
+					
+					let reader = new FileReader()
+					reader.readAsDataURL(file.raw)
+					reader.onload = function (event) {
+						let img_base64 = this.result
+						let imgList_query = [];
+						imgList_query.push(img_base64)
+						imgList_query.map(item => {
+							let img64 = item.slice(23)
+							self.form.imgList_query.push(img64)
+							console.log(self.form.imgList_query)
+						})
+					}
+
+				},
+
+				handleFileUploaderExceed_query(file, fileList) {
+					alert("最多上传6张图片!")
+				},
+
+				handleRemove(file, fileList) {
+					console.log(file, fileList);
+				},
+				handlePictureCardPreview(file) {
+					this.dialogImageUrl = file.url;
+					this.dialogVisible = true;
+				},
+			}
+	    })
+	</script>
+	
+	<script>
+	    new Vue({
+	        el: '#gallery',
+	        data() {
+				//here we can write ajax request, No we write ajax in method and change the data here.
+				return {
+					form_search: {
+					    topk: '',
+					},
+					tableData: [],
+				}
+	        },
+
+			methods: {
+				handleSearch() {
+					let Url = '/ajax_search';
+					var _this = this
+					$.ajax({
+						type: "post",
+						url: Url,
+						contentType: "application/json",
+						data: JSON.stringify({
+						task: "get_data",
+						topk: this.form_search.topk,
+						}),
+						dataType: "json",  //这个datatype指的是后端传回的data的类型
+
+						success: function (result) {
+						// console.log(result)
+						// _this.tableData = [{pid:"0", cid:"0", searchImages:[]},
+						//                    {pid:'1', cid:"1", searchImages:[]},
+						// 				      {pid:'2', cid:'2', searchImages:[]}]
+						console.log("here")
+						_this.tableData = result["data"]  //求求不要粗心把'.'写成'_'了!!!
+						},
+
+						error: function (XMLHttpRequest, textStatus, thrownError) {
+							console.log("ERROR")
+							alert("error")
+						}
+					})
+					//清除所有内容
+					// this.form_search.topk = '';
+				},
+			}
+			  
+			
+	    })
+	</script>
+	
+	
+</body>
+</html>
+
+<!--
+	html中引入vue踩坑。
+1、html中引入vue组件时，实例化vue很关键，它指明了在某一个div里由vue控制，于是在这个div里面
+  可以使用vue的语法。注意到:实例化的中提供了data function(),和method等,为相关组件提供数据和响应方法。
+  现在看来在data function()中可以写ajax请求了。
+  不需要扯淡的export default,回归原始的function()即可!!
+  export default function(),省略了后面的functino,其功能主要用来模块间function复用。
+2、善于使用fn+f12找错误,一般页面不显示都是这些错误引起的。
+  比如说:引入了表单form 但是不显示 原因在于return的data()中没有定义form。
+3、网页加载慢会不会是因为上传图片的函数还没有写完的原因？好像和电脑性能有关,在windows上加载速度正常。
+4、进入success的修改方法,把datatype改为text。上传成功这里看能不能改为进度条
+5、windows.locate的方法修改网址为"http://127.0.0.1:5000/"即可
+6、form里面的uid非常重要,似乎标识了一个用户？？没有uid图像的base_64编码无法传回,uid具体作用需要查一下。
+7、目前实现的这个代码,图片base_64上传的时候会少一个'i',不知道问题在哪里,现在的解决方法是在每一个base_64的字符串前面加一个'i'
+8、使用mounted保证每次加载界面时，table都能从后台读取到数据，作者建议使用axios，尝试ajax不行后再替换。另外注意var _this=this，以及function内部，tableData为赋值。
+  另外mounted后面似乎必须跟function().
+ -->
